@@ -1060,6 +1060,22 @@
 
 }
 
+%% Iss2: J.Delos Added closed switch, just a short circuit  
+%% Generic SPST
+
+\pgfcircdeclarebipole{}{\ctikzvalof{bipoles/interr/height 2}}{clst}{\ctikzvalof{bipoles/interr/height}}{\ctikzvalof{bipoles/interr/width}}{
+
+			\pgfsetlinewidth{\pgfkeysvalueof{/tikz/circuitikz/bipoles/thickness}\pgfstartlinewidth}
+		
+			\pgfpathmoveto{\pgfpoint{\pgf@circ@res@left}{0pt}}
+			\pgfpathlineto{\pgfpoint{\pgf@circ@res@right}{0pt}}
+			\pgfpathmoveto{\pgfpoint{\pgf@circ@res@left}{\pgf@circ@res@up}}
+        %    \pgfpatharc{65}{25}{\pgfkeysvalueof{/tikz/circuitikz/bipoles/interr/width}\pgf@circ@Rlen}
+			%\pgfsetarrowsend{latex'}
+			\pgfusepath{draw}
+
+}
+
 %% Iss1: J.Delos Added generic switch, switch without the action arrows 
 %% Generic SPST
 
