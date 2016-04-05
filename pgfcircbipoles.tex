@@ -1235,6 +1235,7 @@
 	\pgfnode{circle}{center}{\boldmath$\Omega$}{}{}
 }
 
+
 %% Voltmeter
 
 \pgfcircdeclarebipole{}{\ctikzvalof{bipoles/voltmeter/height}}{voltmeter}{\ctikzvalof{bipoles/voltmeter/height}}{\ctikzvalof{bipoles/voltmeter/width}}{
@@ -1276,6 +1277,51 @@
 	\pgfusepath{draw}
 
 	\pgfnode{circle}{center}{\textbf{V}}{}{}
+		
+}
+
+%% Iss3: J.Delos adding vertical voltmeter
+%% Voltmeter
+
+\pgfcircdeclarebipole{}{\ctikzvalof{bipoles/voltmeter/height}}{voltmeterV}{\ctikzvalof{bipoles/voltmeter/height}}{\ctikzvalof{bipoles/voltmeter/width}}{
+	\def\pgf@circ@temp{right}
+	\ifx\tikz@res@label@pos\pgf@circ@temp
+		\pgf@circ@res@step=-1.2\pgf@circ@res@up
+	\else
+		\def\pgf@circ@temp{below}
+		\ifx\tikz@res@label@pos\pgf@circ@temp
+			\pgf@circ@res@step=-1.2\pgf@circ@res@up
+		\else
+			\pgf@circ@res@step=1.2\pgf@circ@res@up
+		\fi
+	\fi
+
+	\pgfpathmoveto{\pgfpoint{\pgf@circ@res@left}{\pgf@circ@res@zero}}		
+	\pgfpointorigin	\pgf@circ@res@other =  \pgf@x  \advance \pgf@circ@res@other by -\pgf@circ@res@up
+	\pgfpathlineto{\pgfpoint{\pgf@circ@res@other}{\pgf@circ@res@zero}}
+	\pgfusepath{draw}
+
+	\pgfsetlinewidth{\pgfkeysvalueof{/tikz/circuitikz/bipoles/thickness}\pgfstartlinewidth}
+
+		\pgfscope
+			\pgfpathcircle{\pgfpointorigin}{.9\pgf@circ@res@up}
+			\pgfusepath{draw}		
+		\endpgfscope	
+
+	\pgfsetlinewidth{\pgfstartlinewidth}
+
+	\pgfsetarrowsend{latex}
+	\pgfpathmoveto{\pgfpoint{\pgf@circ@res@other}{\pgf@circ@res@down}}
+	\pgfpathlineto{\pgfpoint{-\pgf@circ@res@other}{\pgf@circ@res@up}}
+	\pgfusepath{draw}
+	\pgfsetarrowsend{}
+
+	
+	\pgfpathmoveto{\pgfpoint{-\pgf@circ@res@other}{\pgf@circ@res@zero}}
+	\pgfpathlineto{\pgfpoint{\pgf@circ@res@right}{\pgf@circ@res@zero}}
+	\pgfusepath{draw}
+
+	\pgfnode{circle}{center}{\textbf{P}}{}{}
 		
 }
 

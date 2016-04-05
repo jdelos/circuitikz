@@ -188,6 +188,7 @@
 \def\pgf@circ@ammeter@path#1{\pgf@circ@bipole@path{ammeter}{#1}}
 \def\pgf@circ@ohmmeter@path#1{\pgf@circ@bipole@path{ohmmeter}{#1}}
 \def\pgf@circ@voltmeter@path#1{\pgf@circ@bipole@path{voltmeter}{#1}}
+\def\pgf@circ@voltmeterV@path#1{\pgf@circ@bipole@path{voltmeterV}{#1}} % Iss3: J.Delos Added Vertical voltmeter
 \def\pgf@circ@empty@path#1{}
 \def\pgf@circ@photoresistor@path#1{\pgf@circ@bipole@path{photoresistor}{#1}}
 \def\pgf@circ@thyristor@path#1{\pgf@circ@bipole@path{thyristor}{#1}}
@@ -367,6 +368,7 @@
 
 \compattikzset{ammeter/.style = {\circuitikzbasekey, /tikz/to path=\pgf@circ@ammeter@path}}
 \compattikzset{voltmeter/.style = {\circuitikzbasekey, /tikz/to path=\pgf@circ@voltmeter@path}}
+\compattikzset{voltmeterV/.style = {\circuitikzbasekey, /tikz/to path=\pgf@circ@voltmeterV@path}} % Iss3: J. Delos vertical voltmeter 
 \compattikzset{ohmmeter/.style = {\circuitikzbasekey, /tikz/to path=\pgf@circ@ohmmeter@path}}
 
 % short forms
