@@ -1309,7 +1309,10 @@
 		\endpgfscope	
 
 	\pgfsetlinewidth{\pgfstartlinewidth}
-
+	
+	{
+	\pgftransformrotate{90}
+	
 	\pgfsetarrowsend{latex}
 	\pgfpathmoveto{\pgfpoint{\pgf@circ@res@other}{\pgf@circ@res@down}}
 	\pgfpathlineto{\pgfpoint{-\pgf@circ@res@other}{\pgf@circ@res@up}}
@@ -1321,8 +1324,8 @@
 	\pgfpathlineto{\pgfpoint{\pgf@circ@res@right}{\pgf@circ@res@zero}}
 	\pgfusepath{draw}
 
-	\pgfnode{circle}{center}{\textbf{P}}{}{}
-		
+	\pgfnode{circle}{center}{\textbf{V}}{}{}
+	}	
 }
 
 %% Short circuit
